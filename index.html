@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-ON! 응땅응땅!!</title>
+    <!-- Tailwind CSS를 사용하여 빠르고 예쁘게 디자인합니다 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 기본 폰트(Inter)를 불러옵니다 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 메이플스토리 웹폰트를 직접 정의합니다 */
+        @font-face {
+            font-family: 'MaplestoryOTFBold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 기본 폰트는 깔끔한 Inter 폰트로 설정합니다 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* 헤더의 h1 태그(사이트 제목)에만 메이플스토리 폰트를 적용합니다 */
+        header h1 {
+            font-family: 'MaplestoryOTFBold', sans-serif;
+        }
+        /* 모달이 보일 때 스크롤을 막습니다 */
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F8A4] text-gray-800">
+
+    <!-- 헤더: 사이트 제목과 로고가 들어갈 공간 -->
+    <header class="bg-[#FE2128] text-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-3xl">K-ON! 응땅응땅!!</h1>
+        </div>
+    </header>
+
+    <!-- 네비게이션 메뉴 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-6">
+            <ul class="flex space-x-6 py-3">
+                <li><a href="#schedule" class="text-red-600 hover:text-red-800 font-semibold">상영회 일정</a></li>
+                <li><a href="#archive" class="text-red-600 hover:text-red-800 font-semibold">역대 상영회 둘러보기</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="container mx-auto p-6">
+
+        <!-- 1. 상영회 일정 섹션 -->
+        <section id="schedule" class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-red-300 pb-2 mb-4">다가오는 상영회 일정</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-[#FE2128]">2025 3rd 케이온 극장판 응원상영회</h3>
+                <p class="text-gray-600 mt-2"><strong>일시:</strong> 10월 11일 (토)</p>
+                <p class="text-gray-600"><strong>장소:</strong> 씨네Q 신도림(10관) or 롯데시네마 수원(컬러리움)</p>
+                <p class="text-gray-600"><strong>가격:</strong> 1인당 20,000원 (예정, 변동 가능)</p>
+                <p class="text-gray-600"><strong>특전:</strong> 오리지널 티켓</p>
+                <p class="mt-4">아래 버튼을 통해 예매 신청을 받고 있습니다!</p>
+                <a href="https://forms.google.com" target="_blank" class="inline-block bg-[#FE2128] text-white px-4 py-2 rounded-md mt-4 hover:bg-red-700 transition-colors">예매하기 (구글폼)</a>
+            </div>
+        </section>
+
+        <!-- 2. 역대 상영회 아카이브 섹션 -->
+        <section id="archive" class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-red-300 pb-2 mb-4">역대 상영회 둘러보기</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 상영회 아이템 1 -->
+                <div class="archive-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer group" 
+                     data-title="2025 1st 케이온 라이브 이벤트 대관" 
+                     data-date="2025년 6월 6일" 
+                     data-video-url="https://www.youtube.com/embed/Ai8wsdk6tf4"
+                     data-photos="https://i.ibb.co/FbwGv3h4/20250606-115641.jpg,https://i.ibb.co/HfYHCTfc/20250606-141103-1.jpg,https://i.ibb.co/nMctSKS2/20250606-164258.jpg,https://i.ibb.co/gZP5KMGj/1749219906278.jpg,https://i.ibb.co/pBjdYBch/1749219906377.jpg,https://i.ibb.co/FbtGr47p/1749219906770.jpg,https://i.ibb.co/F4ffrfvz/1749219906804.jpg,https://i.ibb.co/v6rTpN0x/1749219906839.jpg,https://i.ibb.co/b5ky7sQg/1749219906917.jpg,https://i.ibb.co/7JmYNhJ5/1749219906949.jpg,https://i.ibb.co/2QrVgmr/1749219906980.jpg,https://i.ibb.co/HpdDwKxh/1749219907040.jpg,https://i.ibb.co/nM35knJb/1749219907235.jpg,https://i.ibb.co/Fk2xzWJr/edit-1749220234234.jpg,https://i.ibb.co/4wrtph5k/Image-70105.jpg,https://i.ibb.co/cc3FrYg2/Image-165979.jpg,https://i.ibb.co/KnS1JTK/resize-Image-91749219906692.jpg">
+                    <img src="https://i.ibb.co/FbwGv3h4/20250606-115641.jpg" alt="2025 1st 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                    <div class="p-4">
+                        <h3 class="font-semibold">2025 1st 케이온 라이브 이벤트 대관</h3>
+                        <p class="text-sm text-gray-500">2025년 6월 6일</p>
+                    </div>
+                </div>
+                <!-- 상영회 아이템 2 -->
+                <div class="archive-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer group"
+                     data-title="2025 2nd 케이온 라이브 이벤트 대관" 
+                     data-date="2025년 8월 16일" 
+                     data-video-url="https://www.youtube.com/embed/tC388Ba6wpw"
+                     data-photos="https://i.ibb.co/nxCbk5w/20250816-123909-2.jpg,https://i.ibb.co/fG4fCF0h/20250816-123909-1.jpg,https://i.ibb.co/xKR06mvm/20250816-122301.jpg">
+                    <img src="https://i.ibb.co/xKR06mvm/20250816-122301.jpg" alt="2025 2nd 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                    <div class="p-4">
+                        <h3 class="font-semibold">2025 2nd 케이온 라이브 이벤트 대관</h3>
+                        <p class="text-sm text-gray-500">2025년 8월 16일</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto p-6 text-center text-sm">
+            <p>이 사이트는 케이온을 사랑하는 팬에 의해 운영됩니다.</p>
+            <p>&copy; 2025 K-ON! Gallary. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 아카이브 상세 보기 모달 -->
+    <div id="archive-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-full overflow-y-auto p-6 relative">
+            <!-- 닫기 버튼 -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0-0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-[#FE2128] mb-1"></h3>
+            <p id="modal-date" class="text-sm text-gray-500 mb-4"></p>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">상영회 영상</h4>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe id="modal-video" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">현장 사진</h4>
+                    <div id="modal-photos" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM이 완전히 로드된 후에 스크립트를 실행합니다.
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 모달 관련 로직 ---
+            const archiveItems = document.querySelectorAll('.archive-item');
+            const modal = document.getElementById('archive-modal');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDate = document.getElementById('modal-date');
+            const modalVideo = document.getElementById('modal-video');
+            const modalPhotosContainer = document.getElementById('modal-photos');
+
+            const openModal = () => {
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            };
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+                modalVideo.src = '';
+            };
+
+            archiveItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const title = item.dataset.title;
+                    const date = item.dataset.date;
+                    const videoUrl = item.dataset.videoUrl;
+                    const photos = item.dataset.photos.split(',').map(p => p.trim());
+
+                    modalTitle.textContent = title;
+                    modalDate.textContent = date;
+                    modalVideo.src = videoUrl;
+                    modalPhotosContainer.innerHTML = '';
+                    photos.forEach(photoUrl => {
+                        const img = document.createElement('img');
+                        img.src = photoUrl;
+                        img.alt = `${title} 현장 사진`;
+                        img.className = 'w-full h-auto rounded-md object-cover';
+                        modalPhotosContainer.appendChild(img);
+                    });
+                    openModal();
+                });
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
