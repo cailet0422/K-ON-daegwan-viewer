@@ -125,8 +125,11 @@
             <div class="space-y-6">
                 <div>
                     <h4 class="text-lg font-semibold mb-2">상영회 영상</h4>
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe id="modal-video" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="max-w-3xl mx-auto">
+                        <!-- 영상 비율을 16:9에서 4:3으로 변경하여 세로 길이를 늘렸습니다. -->
+                        <div class="aspect-w-4 aspect-h-3">
+                            <iframe id="modal-video" class="w-full h-full rounded-lg" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -140,19 +143,24 @@
     </div>
 
     <!-- 이미지 뷰어 모달 -->
-    <div id="image-viewer-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-60 flex items-center justify-center p-4 modal-transition opacity-0">
-        <div class="relative w-full h-full flex items-center justify-center">
-            <img id="viewer-image" src="" alt="확대된 이미지" class="max-w-full max-h-full object-contain">
+    <div id="image-viewer-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-[60] flex items-center justify-center modal-transition opacity-0">
+        <div class="relative w-full h-full p-4 sm:p-8 flex items-center justify-center">
+            <img id="viewer-image" src="" alt="확대된 이미지" class="max-w-full max-h-full object-contain block">
         </div>
-        <button id="image-viewer-close-btn" class="absolute top-5 right-5 text-white text-4xl font-bold leading-none hover:opacity-75">&times;</button>
+        <button id="image-viewer-close-btn" class="absolute top-4 right-4 text-white hover:opacity-75">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
     </div>
 
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- 모든 모달 관련 요소 ---
+            const archiveModal = document.getElementById('archive-modal');
+            const imageViewerModal = document.getElementById('image-viewer-modal');
+            
             // --- 아카이브 모달 관련 요소 ---
             const archiveItems = document.querySelectorAll('.archive-item');
-            const archiveModal = document.getElementById('archive-modal');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const modalTitle = document.getElementById('modal-title');
             const modalDate = document.getElementById('modal-date');
@@ -160,37 +168,42 @@
             const modalPhotosContainer = document.getElementById('modal-photos');
 
             // --- 이미지 뷰어 모달 관련 요소 ---
-            const imageViewerModal = document.getElementById('image-viewer-modal');
             const viewerImage = document.getElementById('viewer-image');
             const imageViewerCloseBtn = document.getElementById('image-viewer-close-btn');
 
             // --- 아카이브 모달 열기/닫기 함수 ---
             const openArchiveModal = () => {
                 archiveModal.classList.remove('hidden');
-                setTimeout(() => archiveModal.classList.remove('opacity-0'), 10); // Fade-in
+                setTimeout(() => archiveModal.classList.remove('opacity-0'), 10);
                 document.body.classList.add('modal-open');
             };
             const closeArchiveModal = () => {
                 archiveModal.classList.add('opacity-0');
                 setTimeout(() => {
                     archiveModal.classList.add('hidden');
-                    modalVideo.src = ''; // 비디오 재생 중지
-                }, 300); // Transition 시간과 동일하게 설정
-                document.body.classList.remove('modal-open');
+                    modalVideo.src = ''; 
+                }, 300);
+                if (imageViewerModal.classList.contains('hidden')) {
+                    document.body.classList.remove('modal-open');
+                }
             };
 
             // --- 이미지 뷰어 열기/닫기 함수 ---
             const openImageViewer = (src) => {
                 viewerImage.src = src;
                 imageViewerModal.classList.remove('hidden');
-                setTimeout(() => imageViewerModal.classList.remove('opacity-0'), 10); // Fade-in
+                setTimeout(() => imageViewerModal.classList.remove('opacity-0'), 10);
+                document.body.classList.add('modal-open');
             };
             const closeImageViewer = () => {
                 imageViewerModal.classList.add('opacity-0');
                 setTimeout(() => {
                     imageViewerModal.classList.add('hidden');
-                    viewerImage.src = ''; // 이미지 소스 초기화
+                    viewerImage.src = '';
                 }, 300);
+                if (archiveModal.classList.contains('hidden')) {
+                    document.body.classList.remove('modal-open');
+                }
             };
 
             // --- 이벤트 리스너 설정 ---
@@ -201,30 +214,25 @@
                     const title = item.dataset.title;
                     const date = item.dataset.date;
                     const videoUrl = item.dataset.videoUrl;
-                    const photos = item.dataset.photos.split(',').map(p => p.trim()).filter(p => p); // 비어있는 링크는 제외
+                    const photos = item.dataset.photos.split(',').map(p => p.trim()).filter(p => p);
 
                     modalTitle.textContent = title;
                     modalDate.textContent = date;
                     modalVideo.src = videoUrl;
                     
-                    modalPhotosContainer.innerHTML = ''; // 사진 목록 초기화
+                    modalPhotosContainer.innerHTML = '';
                     if (photos.length > 0) {
                         photos.forEach(photoUrl => {
                             const img = document.createElement('img');
                             img.src = photoUrl;
                             img.alt = `${title} 현장 사진`;
                             img.className = 'w-full h-auto rounded-md object-cover cursor-pointer hover:opacity-80 transition-opacity';
-                            
-                            // 생성된 이미지에 뷰어 열기 이벤트 추가
                             img.addEventListener('click', () => openImageViewer(photoUrl));
-                            
                             modalPhotosContainer.appendChild(img);
                         });
                     } else {
                         modalPhotosContainer.innerHTML = '<p class="text-gray-500 col-span-full">업로드된 사진이 없습니다.</p>';
                     }
-
-
                     openArchiveModal();
                 });
             });
@@ -238,9 +246,19 @@
             // 이미지 뷰어 닫기
             imageViewerCloseBtn.addEventListener('click', closeImageViewer);
             imageViewerModal.addEventListener('click', (event) => {
-                // 이미지가 아닌 배경을 클릭했을 때만 닫기
                 if (event.target !== viewerImage) {
                     closeImageViewer();
+                }
+            });
+
+            // ESC 키로 모달 닫기
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    if (!imageViewerModal.classList.contains('hidden')) {
+                        closeImageViewer();
+                    } else if (!archiveModal.classList.contains('hidden')) {
+                        closeArchiveModal();
+                    }
                 }
             });
         });
