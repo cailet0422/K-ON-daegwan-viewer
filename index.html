@@ -31,6 +31,10 @@
         body.modal-open {
             overflow: hidden;
         }
+        /* 모달 페이드인/아웃 효과를 위한 CSS */
+        .modal-transition {
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-[#F8F8A4] text-gray-800">
@@ -38,7 +42,6 @@
     <!-- 헤더: 사이트 제목과 로고가 들어갈 공간 -->
     <header class="bg-[#FE2128] text-white shadow-md">
         <div class="container mx-auto px-6 py-4">
-            <!-- 모바일에서는 글자 크기를 줄여 가독성을 높입니다 (text-2xl sm:text-3xl) -->
             <h1 class="text-2xl sm:text-3xl text-center sm:text-left">K-ON! 응땅응땅!!</h1>
         </div>
     </header>
@@ -46,7 +49,6 @@
     <!-- 네비게이션 메뉴 -->
     <nav class="bg-white shadow-sm sticky top-0 z-10">
         <div class="container mx-auto px-6">
-            <!-- 모바일에서는 메뉴를 가운데 정렬하고 간격을 줄입니다 -->
             <ul class="flex justify-center sm:justify-start space-x-4 sm:space-x-6 py-3">
                 <li><a href="#schedule" class="text-red-600 hover:text-red-800 font-semibold">상영회 일정</a></li>
                 <li><a href="#archive" class="text-red-600 hover:text-red-800 font-semibold">역대 상영회</a></li>
@@ -74,15 +76,14 @@
         <!-- 2. 역대 상영회 아카이브 섹션 -->
         <section id="archive" class="mb-12">
             <h2 class="text-xl sm:text-2xl font-bold border-b-2 border-red-300 pb-2 mb-4">역대 상영회 둘러보기</h2>
-            <!-- 모바일(기본): 1열 -> 태블릿(md): 2열 -> 데스크탑(lg): 3열로 자동 변경됩니다 -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 상영회 아이템 1 -->
                 <div class="archive-item bg-white rounded-lg shadow-md overflow-hidden cursor-pointer group" 
                      data-title="2025 1st 케이온 라이브 이벤트 대관" 
                      data-date="2025년 6월 6일" 
                      data-video-url="https://www.youtube.com/embed/Ai8wsdk6tf4"
-                     data-photos="https://i.ibb.co/FbwGv3h4/20250606-115641.jpg,https://i.ibb.co/HfYHCTfc/20250606-141103-1.jpg,https://i.ibb.co/nMctSKS2/20250606-164258.jpg,https://i.ibb.co/gZP5KMGj/1749219906278.jpg,https://i.ibb.co/pBjdYBch/1749219906377.jpg,https://i.ibb.co/FbtGr47p/1749219906770.jpg,https://i.ibb.co/F4ffrfvz/1749219906804.jpg,https://i.ibb.co/v6rTpN0x/1749219906839.jpg,https://i.ibb.co/b5ky7sQg/1749219906917.jpg,https://i.ibb.co/7JmYNhJ5/1749219906949.jpg,https://i.ibb.co/2QrVgmr/1749219906980.jpg,https://i.ibb.co/HpdDwKxh/1749219907040.jpg,https://i.ibb.co/nM35knJb/1749219907235.jpg,https://i.ibb.co/Fk2xzWJr/edit-1749220234234.jpg,https://i.ibb.co/4wrtph5k/Image-70105.jpg,https://i.ibb.co/cc3FrYg2/Image-165979.jpg,https://i.ibb.co/KnS1JTK/resize-Image-91749219906692.jpg">
-                    <img src="https://i.ibb.co/FbwGv3h4/20250606-115641.jpg" alt="2025 1st 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                     data-photos="https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/resizeImage_91749219906692.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/edit_1749220234234.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/Image_70105.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/Image_165979.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250606_164258.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250606_141103(1).jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250606_115641.jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/1749219907235.jpg?raw=true">
+                    <img src="https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/resizeImage_91749219906692.jpg?raw=true" alt="2025 1st 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
                     <div class="p-4">
                         <h3 class="font-semibold">2025 1st 케이온 라이브 이벤트 대관</h3>
                         <p class="text-sm text-gray-500">2025년 6월 6일</p>
@@ -93,8 +94,8 @@
                      data-title="2025 2nd 케이온 라이브 이벤트 대관" 
                      data-date="2025년 8월 16일" 
                      data-video-url="https://www.youtube.com/embed/tC388Ba6wpw"
-                     data-photos="https://i.ibb.co/nxCbk5w/20250816-123909-2.jpg,https://i.ibb.co/fG4fCF0h/20250816-123909-1.jpg,https://i.ibb.co/xKR06mvm/20250816-122301.jpg">
-                    <img src="https://i.ibb.co/xKR06mvm/20250816-122301.jpg" alt="2025 2nd 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
+                     data-photos="https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250816_123909(2).jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250816_123909(1).jpg?raw=true,https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250816_122301.jpg?raw=true">
+                    <img src="https://github.com/cailet0422/K-ON-daegwan-viewer/blob/main/pics/20250816_122301.jpg?raw=true" alt="2025 2nd 케이온 라이브 이벤트 대관 썸네일" class="w-full h-48 object-cover group-hover:opacity-75 transition-opacity">
                     <div class="p-4">
                         <h3 class="font-semibold">2025 2nd 케이온 라이브 이벤트 대관</h3>
                         <p class="text-sm text-gray-500">2025년 8월 16일</p>
@@ -114,10 +115,9 @@
     </footer>
 
     <!-- 아카이브 상세 보기 모달 -->
-    <div id="archive-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+    <div id="archive-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 modal-transition opacity-0">
         <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-full overflow-y-auto p-6 relative">
-            <!-- 닫기 버튼 -->
-            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 z-10">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0-0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-[#FE2128] mb-1"></h3>
@@ -131,59 +131,117 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-2">현장 사진</h4>
-                    <div id="modal-photos" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                    <div id="modal-photos" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- 사진들이 여기에 동적으로 추가됩니다 -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 이미지 뷰어 모달 -->
+    <div id="image-viewer-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-60 flex items-center justify-center p-4 modal-transition opacity-0">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <img id="viewer-image" src="" alt="확대된 이미지" class="max-w-full max-h-full object-contain">
+        </div>
+        <button id="image-viewer-close-btn" class="absolute top-5 right-5 text-white text-4xl font-bold leading-none hover:opacity-75">&times;</button>
+    </div>
+
+
     <script>
-        // DOM이 완전히 로드된 후에 스크립트를 실행합니다.
         document.addEventListener('DOMContentLoaded', () => {
-            // --- 모달 관련 로직 ---
+            // --- 아카이브 모달 관련 요소 ---
             const archiveItems = document.querySelectorAll('.archive-item');
-            const modal = document.getElementById('archive-modal');
+            const archiveModal = document.getElementById('archive-modal');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const modalTitle = document.getElementById('modal-title');
             const modalDate = document.getElementById('modal-date');
             const modalVideo = document.getElementById('modal-video');
             const modalPhotosContainer = document.getElementById('modal-photos');
 
-            const openModal = () => {
-                modal.classList.remove('hidden');
+            // --- 이미지 뷰어 모달 관련 요소 ---
+            const imageViewerModal = document.getElementById('image-viewer-modal');
+            const viewerImage = document.getElementById('viewer-image');
+            const imageViewerCloseBtn = document.getElementById('image-viewer-close-btn');
+
+            // --- 아카이브 모달 열기/닫기 함수 ---
+            const openArchiveModal = () => {
+                archiveModal.classList.remove('hidden');
+                setTimeout(() => archiveModal.classList.remove('opacity-0'), 10); // Fade-in
                 document.body.classList.add('modal-open');
             };
-            const closeModal = () => {
-                modal.classList.add('hidden');
+            const closeArchiveModal = () => {
+                archiveModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    archiveModal.classList.add('hidden');
+                    modalVideo.src = ''; // 비디오 재생 중지
+                }, 300); // Transition 시간과 동일하게 설정
                 document.body.classList.remove('modal-open');
-                modalVideo.src = '';
             };
 
+            // --- 이미지 뷰어 열기/닫기 함수 ---
+            const openImageViewer = (src) => {
+                viewerImage.src = src;
+                imageViewerModal.classList.remove('hidden');
+                setTimeout(() => imageViewerModal.classList.remove('opacity-0'), 10); // Fade-in
+            };
+            const closeImageViewer = () => {
+                imageViewerModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    imageViewerModal.classList.add('hidden');
+                    viewerImage.src = ''; // 이미지 소스 초기화
+                }, 300);
+            };
+
+            // --- 이벤트 리스너 설정 ---
+
+            // 각 아카이브 아이템 클릭 시
             archiveItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const title = item.dataset.title;
                     const date = item.dataset.date;
                     const videoUrl = item.dataset.videoUrl;
-                    const photos = item.dataset.photos.split(',').map(p => p.trim());
+                    const photos = item.dataset.photos.split(',').map(p => p.trim()).filter(p => p); // 비어있는 링크는 제외
 
                     modalTitle.textContent = title;
                     modalDate.textContent = date;
                     modalVideo.src = videoUrl;
-                    modalPhotosContainer.innerHTML = '';
-                    photos.forEach(photoUrl => {
-                        const img = document.createElement('img');
-                        img.src = photoUrl;
-                        img.alt = `${title} 현장 사진`;
-                        img.className = 'w-full h-auto rounded-md object-cover';
-                        modalPhotosContainer.appendChild(img);
-                    });
-                    openModal();
+                    
+                    modalPhotosContainer.innerHTML = ''; // 사진 목록 초기화
+                    if (photos.length > 0) {
+                        photos.forEach(photoUrl => {
+                            const img = document.createElement('img');
+                            img.src = photoUrl;
+                            img.alt = `${title} 현장 사진`;
+                            img.className = 'w-full h-auto rounded-md object-cover cursor-pointer hover:opacity-80 transition-opacity';
+                            
+                            // 생성된 이미지에 뷰어 열기 이벤트 추가
+                            img.addEventListener('click', () => openImageViewer(photoUrl));
+                            
+                            modalPhotosContainer.appendChild(img);
+                        });
+                    } else {
+                        modalPhotosContainer.innerHTML = '<p class="text-gray-500 col-span-full">업로드된 사진이 없습니다.</p>';
+                    }
+
+
+                    openArchiveModal();
                 });
             });
 
-            modalCloseBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) closeModal();
+            // 아카이브 모달 닫기
+            modalCloseBtn.addEventListener('click', closeArchiveModal);
+            archiveModal.addEventListener('click', (event) => {
+                if (event.target === archiveModal) closeArchiveModal();
+            });
+
+            // 이미지 뷰어 닫기
+            imageViewerCloseBtn.addEventListener('click', closeImageViewer);
+            imageViewerModal.addEventListener('click', (event) => {
+                // 이미지가 아닌 배경을 클릭했을 때만 닫기
+                if (event.target !== viewerImage) {
+                    closeImageViewer();
+                }
             });
         });
     </script>
