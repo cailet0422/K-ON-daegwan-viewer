@@ -35,6 +35,10 @@
         .modal-transition {
             transition: opacity 0.3s ease;
         }
+        /* 상세 정보 섹션의 p태그에 아래쪽 여백을 추가하여 가독성을 높입니다. */
+        #schedule-details p {
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-[#F8F8A4] text-gray-800">
@@ -63,13 +67,46 @@
         <section id="schedule" class="mb-12">
             <h2 class="text-xl sm:text-2xl font-bold border-b-2 border-red-300 pb-2 mb-4">다가오는 상영회 일정</h2>
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-lg sm:text-xl font-semibold text-[#FE2128]">2025 3rd 케이온 극장판 응원상영회</h3>
-                <p class="text-gray-600 mt-2"><strong>일시:</strong> 10월 11일 (토)</p>
-                <p class="text-gray-600"><strong>장소:</strong> 씨네Q 신도림(10관) or 롯데시네마 수원(컬러리움)</p>
-                <p class="text-gray-600"><strong>가격:</strong> 1인당 20,000원 (예정, 변동 가능)</p>
-                <p class="text-gray-600"><strong>특전:</strong> 오리지널 티켓</p>
-                <p class="mt-4">아래 버튼을 통해 예매 신청을 받고 있습니다!</p>
-                <a href="https://forms.google.com" target="_blank" class="inline-block bg-[#FE2128] text-white px-4 py-2 rounded-md mt-4 hover:bg-red-700 transition-colors">예매하기 (구글폼)</a>
+                <h3 class="text-lg sm:text-xl font-semibold text-[#FE2128] mb-4">2025 3rd 케이온 극장판 응원상영회</h3>
+                
+                <div id="schedule-details" class="text-gray-700 space-y-4">
+                    <div>
+                        <p><strong>일시:</strong> 2025년 10월 11일 토요일</p>
+                        <p><strong>장소:</strong> 씨네Q 신도림 10관 (인원 초과 시 롯데시네마 수원 컬러리움관)</p>
+                        <p><strong>인원:</strong> 90명 (1인 2매까지 신청 가능)</p>
+                        <p><strong>특전:</strong> 오리지널 티켓 2종</p>
+                        <p><strong>가격:</strong> 1인당 25,000원 / 2인 50,000원 (수원 이동 시 1만원 추가)</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-md">
+                        <h4 class="font-semibold mb-2">&lt;대관 시간표&gt;</h4>
+                        <p><strong>13:00</strong> 본인 확인 및 티켓&굿즈 배부</p>
+                        <p><strong>13:20</strong> 경품추첨 (라이브 방송)</p>
+                        <p><strong>13:50</strong> 상영관 입장</p>
+                        <p><strong>14:10</strong> 상영 시작</p>
+                        <p><strong>16:00</strong> 상영 종료 후 당첨자 경품 증정</p>
+                    </div>
+
+                    <div>
+                        <p><strong>신청 절차:</strong> 신청폼 작성 → 입금계좌로 입금 → 신청 확정</p>
+                        <p><strong>입금계좌:</strong> 신청폼 내 확인</p>
+                        <p class="text-red-600 text-sm">[ ※ 입금 시 꼭 커뮤니티 닉네임이 아닌, 신청폼에 작성된 성함으로 입금하세요 ]</p>
+                    </div>
+                    
+                    <div class="text-sm text-gray-600 border-t pt-4">
+                        <p><strong>신청기한:</strong> 2025년 8월 23일부터 좌석 소진 시까지</p>
+                        <p><strong>입금기한:</strong> 2025년 8월 23일 ~ 10월 1일</p>
+                        <p><strong>취소기한:</strong> 2025년 8월 23일 ~ 10월 1일</p>
+                        <p><strong>양도기한:</strong> 2025년 10월 5일까지</p>
+                        <p class="mt-2">※ 양도는 가능하며, 양도자는 양수인의 이름과 휴대폰 번호를 주최 측에 알려주셔야 합니다. 관람 가격 이상의 금액을 요구할 경우, 양도자의 티켓은 취소되며 양수인에게 표가 넘어갑니다.</p>
+                    </div>
+                </div>
+
+                <!-- 버튼 링크 수정 및 추가 -->
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <a href="https://forms.gle/PNqnXKmjfBxPrFHk8" target="_blank" class="inline-block bg-[#FE2128] text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors font-bold">신청폼 바로가기</a>
+                    <a href="https://forms.gle/ow6qAC9SANMKsZnv5" target="_blank" class="inline-block bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors font-bold">대관 후원폼 바로가기</a>
+                </div>
             </div>
         </section>
 
@@ -126,7 +163,6 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-2">상영회 영상</h4>
                     <div class="max-w-3xl mx-auto">
-                        <!-- 영상 비율을 16:9에서 4:3으로 변경하여 세로 길이를 늘렸습니다. -->
                         <div class="aspect-w-4 aspect-h-3">
                             <iframe id="modal-video" class="w-full h-full rounded-lg" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
